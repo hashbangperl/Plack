@@ -35,7 +35,6 @@ Plack::Test - Test PSGI applications with various backends
           my $cb = shift;
           my $req = HTTP::Request->new(GET => "http://localhost/hello");
           my $res = $cb->($req);
-          $res->request($req); # set request manually for HTTP::Cookie, etc to work
           like $res->content, qr/Hello World/;
       };
 
