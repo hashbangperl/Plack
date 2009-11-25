@@ -17,6 +17,7 @@ sub test_psgi {
         my $req = shift;
         my $env = $req->to_psgi;
         my $res = HTTP::Response->from_psgi($app->($env));
+	$res->request($req);
     };
 
     $client->($cb);
